@@ -5,6 +5,8 @@ import os
 from django.conf import settings
 
 
+BASE_DIR=os.path.dirname(__file__)
+
 settings.configure(
     DEBUG=True,
     SECRET_KEY=os.environ.get('SECRET_KEY', '{{ secret_key }}'),
@@ -15,6 +17,7 @@ settings.configure(
         'sitebuilder',
     ),
     STATIC_URL='/static/',
+    SITE_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages'),
 )
 
 
